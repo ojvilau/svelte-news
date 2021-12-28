@@ -1,6 +1,5 @@
 <script context="module">
 	import Story from '$lib/story/Story.svelte';
-	import axios from 'axios';
 
 	export async function load({ fetch }) {
 		const resp = await fetch('/stories.json');
