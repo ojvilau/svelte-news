@@ -3,43 +3,32 @@
 	import '../app.css';
 </script>
 
-<Header />
-
-<main>
-	<slot />
-</main>
+<div class="main">
+	<Header />
+	<div class="page">
+		<slot />
+	</div>
+</div>
 
 <footer>
 	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
 </footer>
 
 <style>
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 1024px;
-		margin: 0 auto;
-		box-sizing: border-box;
+	.main {
+		width: 85%;
+		margin: auto;
+		padding: 10px 0 0 0;
 	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
+	.page {
+		color: #828282;
+		background: #fff;
+		padding: 3px 10px;
 	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
+	@media (max-width: 750px) {
+		.main {
+			padding: 0;
+			width: auto;
 		}
 	}
 </style>
