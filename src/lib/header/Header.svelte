@@ -1,120 +1,83 @@
 <script>
-	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	import Nav from './Nav.svelte';
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+	<div class="left">
+		<a href="/">
+			<span class="logo">
+				<span class="logo-n">N</span>
+			</span>
+			<span class="site-title">Hacker Next</span>
 		</a>
+		<div class="nav">
+			<Nav />
+		</div>
 	</div>
-
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-			<li class:active={$page.path === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
+	<div class="right">
+		<a href="/login" class="login">login</a>
 	</div>
 </header>
 
 <style>
 	header {
+		background: #ffa52a;
 		display: flex;
-		justify-content: space-between;
+		font-size: 14px;
 	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
+	.logo {
+		margin: 4px 5px 2px 4px;
+		display: inline-block;
 	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
+	.logo-n {
+		border: 1px solid #fff;
+		display: inline-block;
+		color: #fff;
+		font-weight: bold;
+		font-size: 11px;
+		padding: 5px 8px;
 	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
+	.left {
+		flex: 9;
 	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+	.right {
+		flex: 1;
+		text-align: right;
 	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
+	.site-title {
+		font-weight: bold;
+		display: inline-block;
+		font-size: 14px;
 		text-decoration: none;
-		transition: color 0.2s linear;
+		padding: 8px 10px 8px 4px;
+		color: #000;
+		vertical-align: top;
 	}
-
-	a:hover {
-		color: var(--accent-color);
+	a.login {
+		padding: 10px;
+		display: inline-block;
+		font-size: 11px;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #000;
+	}
+	.login:hover {
+		color: #fff;
+	}
+	.nav {
+		display: inline-block;
+		vertical-align: top;
+	}
+	@media (max-width: 750px) {
+		.site-title {
+			font-size: 16px;
+			padding-bottom: 0;
+		}
+		a.login {
+			padding: 24px 10px 23px;
+		}
+		.nav {
+			display: block;
+		}
 	}
 </style>
