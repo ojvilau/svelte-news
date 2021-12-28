@@ -1,4 +1,4 @@
-import { fetchData } from '../lib/fetch-data';
+import fetchData from '../lib/fetch-data';
 import fetchItem from '../lib/fetch-item';
 
 export async function get() {
